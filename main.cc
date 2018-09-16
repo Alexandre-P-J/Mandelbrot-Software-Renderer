@@ -6,12 +6,12 @@
 	AUTHOR: EvilKarut, https://github.com/EvilKarut
 
 	CONTROLS:
-	+/-			to Zoom in/out.
-	Arrow Keys	to move the viewport.
-	M			to permanently execute 10 more iterations.
-	N			to permanently execute 10 less iterations.
-	F			to duplicate the iterations on the next frame (foto mode).
-	Quit or Q	to Exit.
+	+/-				to Zoom in/out.
+	Arrow Keys		to move the viewport.
+	M				to permanently execute 10 more iterations.
+	N				to permanently execute 10 less iterations.
+	F				to duplicate the iterations on the next frame (foto mode).
+	Quit or Q		to Exit.
 */
 
 struct Color {
@@ -39,13 +39,13 @@ struct Color {
 	}
 };
 
-int MandelBrotIterations(const std::complex<double>& Point, const int MaxIterations) {
+int MandelBrotIterations(const std::complex<double>& Point, const int MaxIterations, const double& FloatError) {
 	int Iteration = 0;
 	std::complex<double> LastIt = Point;
 	while (Iteration < MaxIterations) {
 		LastIt = (LastIt * LastIt) + Point;
 		Iteration += 1;
-		if (abs(LastIt.real() - Point.real()) < 0.0005 and abs(LastIt.imag() - Point.imag()) < 0.0005) {
+		if (abs(LastIt.real() - Point.real()) < FloatError and abs(LastIt.imag() - Point.imag()) < FloatError) {
 			return Iteration;
 		}
 	}
@@ -74,7 +74,7 @@ int main() {
 			std::complex<double> Point = PivotPoint;
 			for (int y = 0; y < SizeY; ++y) { 
 				for (int x = 0; x < SizeX; ++x) {
-					int Iterated = MandelBrotIterations(Point, Iterations);
+					int Iterated = MandelBrotIterations(Point, Iterations, Definition);
 					Color C(Iterated);	
 					SDL_SetRenderDrawColor(Renderer, C.R, C.G, C.B, Uint8(256));
 
