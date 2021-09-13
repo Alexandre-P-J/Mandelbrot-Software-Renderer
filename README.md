@@ -1,9 +1,18 @@
-# Mandelbrot Renderer
+# Mandelbrot Software Renderer
 
-Afternoon project I've done to learn how the SDL library works. I know there are better algorithms to compute a representation of Mandelbrot, I just wrote an easy implementation.
+![alt text](preview.jpg)
+Afternoon project to test SDL2's software renderer capabilities implementing a naive mandelbrot plotting algorithm.
 
-## How do I run the software in my machine?
+## Controls
 
-Just compile the source file or run the binary file.
+|            |                 |
+| ---------- | --------------- |
+| +/-        | Zoom in/out     |
+| Arrow Keys | Move the camera |
+| Quit or Q  | Exit            |
 
-Alexandre Pérez Josende
+## Instructions
+
+Compile `main.cpp` with `SDL2`.
+
+On Linux you might run `g++ src/main.cpp -o run -lSDL2`
