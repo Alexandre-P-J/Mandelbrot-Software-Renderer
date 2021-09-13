@@ -1,6 +1,6 @@
 # Mandelbrot Software Renderer
 
-![alt text](preview.jpg)
+![Mandelbrot render](preview.jpg)
 Afternoon project to test SDL2's software renderer capabilities implementing a naive mandelbrot plotting algorithm.
 
 ## Controls
