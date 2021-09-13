@@ -22,7 +22,6 @@ void draw(int width, int height, int max_iterations, SDL_Window *window,
             std::complex<double> C(zoom * (x - (width - height) / 2) / height -
                                        xpos,
                                    zoom * y / height - ypos);
-            // std::cout << C << std::endl;
             int m = mandelbrot_iters(C, max_iterations);
 
             int color_value = 255 - int(float(m * 255) / max_iterations);
@@ -61,7 +60,9 @@ int main(int argc, char *args[]) {
 
     bool quit = false;
     while (!quit) {
+        // experimental zoom-iters relation
         int max_iterations = std::pow(std::log10(10e5 / zoom), 2);
+
         draw(width, height, max_iterations, window, surface, xpos, ypos, zoom);
 
         // Handle Events
